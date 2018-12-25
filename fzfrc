@@ -1,0 +1,62 @@
+# fdi - find docker image
+function fdi() {
+	docker images --format "{{.Repository}}" | fzf --exit-0 --select-1
+}
+
+# fs - find tmux session
+function fs() {
+  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+
+  local session
+  session=$(tmux list-sessions -F "#{session_name}" | \
+    fzf --query="$1" --select-1 --exit-0) &&
+  tmux $change -t "$session"
+}
+
+# fd - cd into directory with fzf
+function fd() {
+	local dir
+	dir=$(find ${1:-.} -path '*/\.*' -prune \
+		        -o -type d -print 2> /dev/null | fzf-tmux +m) &&
+	cd "$dir"
+}
+
+# fda - cd into dir with fzf | +hidden files
+function fda() {
+	local dir
+	dir=$(find ${1:-.} -type d 2> /dev/null | fzf-tmux +m) && cd "$dir"
+}
+
+# fo - open selected file with 'open'-command
+function fo() {
+	local out file key
+	IFS=$'\n' out=($(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
+	key=$(head -1 <<< "$out")
+	file=$(head -2 <<< "$out" | tail -1)
+	if [ -n "$file"  ]; then
+	[ "$key" = ctrl-o  ] && open "$file" || ${EDITOR:-atom} "$file"
+	fi
+}
+
+# fcd - fi	nds command descriptions in this file
+function fcd() {
+	cat ~/dotfiles/functions ~/dotfiles/fzfrc | grep --color=never "^#.* - .*" | sed 's/^# \(.*\)/\1/' | fzf
+}
+
+# fhx - find command from history and execute
+function fhx() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+# fcc - copy command from history to clipboard
+function fcc() {
+   local cmd=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+	 printf $cmd | pbcopy
+}
+
+# fr - fzf on remote system
+function fr() {
+	local search_path=$1
+	[ -z search_path ] && search_path=./
+	rcmd find $1 | fzf
+}

@@ -1,0 +1,7 @@
+alias zshconfig="code ~/.zshrc"
+alias sshstop="sudo launchctl unload  /System/Library/LaunchDaemons/ssh.plist"
+alias sshstart="sudo launchctl load  /System/Library/LaunchDaemons/ssh.plist "
+alias weather="curl wttr.in/berlin"
+alias cl="find . -name '*' | xargs wc -l"
+alias rn="react-native"
+alias genapk="cd android && ./gradlew assembleRelease"

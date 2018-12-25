@@ -1,0 +1,21 @@
+---
+- clean: ['~']
+
+- shell:
+  - [git submodule update --init --recursive, Updating submodules]
+  - [export ZSH="$HOME/.dotfiles/oh-my-zsh" && chsh -s /bin/zsh, Installing oh-my-zsh]
+  - [brewery/install.sh, Installing brew]
+  - [brewery/brew.sh, Installing deps]
+  - [the_silver_searcher/build.sh && sudo make install, Installing silver searcher]
+  - [fzf/install --all, Installing fzf]
+  - [rcmd/install.sh, Installing rcmd]
+
+- link:
+    ~/.config/nvim/init.vim: init.vim
+    ~/.aliases: aliases
+    ~/.environment: environment
+    ~/.fzfrc: fzfrc
+    ~/.tmux.conf: tmux.conf
+    ~/.zshrc: 
+      path: zshrc
+      force: true 

@@ -1,0 +1,48 @@
+
+# mkcd - mkdir and cd into it
+function mkcd() {
+	local dir=$1
+	mkdir ${dir} && cd ${dir};
+}
+
+# line_count - count lines in file
+function line_count() {
+	find $* -name '*' | xargs wc -l
+}
+
+# telnet - telnet as docker image
+function telnet() {
+	docker run -it \
+		dergoegge/telnet
+}
+
+# get_nvpn_server- find best nord vpn server
+function get_nvpn_server() {
+	docker run -it \
+		-v ~/ovpn_tblk:/ovpn_tblk:ro,delegated \
+		dergoegge/nordvpn-servers \
+		-select=by_load -dprefix=de
+}
+
+# connect_to_nvpn_server - connect to nord vpn server
+function connect_to_nvpn_server() {
+	local server_domain=$(get_nvpn_server)
+	
+	echo "Connecting to $server_domain"
+
+	sudo --validate
+	sudo openvpn --config ~/ovpn_tblk/ovpn_tcp/$server_domain.tcp.ovpn.tblk/$server_domain.tcp.ovpn \
+		--auth-user-pass ~/ovpn_tblk/password.txt
+}
+
+function nvpn() {
+	tmux new-session -d -s nord-vpn "connect_to_nvpn_server"
+}
+
+# path_prepend - prepends to path
+function path_prepend() {
+    local path_element=$1
+    [[ -z $path_element || ! -d $path_element ]] && return
+    [[ -n $2 ]] && { print ERROR: only 'path' is supported; return }
+    path=($path_element $path)
+}

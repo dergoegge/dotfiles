@@ -1,0 +1,18 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "rcmd"]
+	path = rcmd
+	url = https://github.com/dergoegge/rcmd.git
+[submodule "dockerfiles"]
+	path = dockerfiles
+	url = https://github.com/dergoegge/dockerfiles.git
+[submodule "the_silver_searcher"]
+	path = the_silver_searcher
+	url = https://github.com/ggreer/the_silver_searcher.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
