@@ -19,3 +19,7 @@ if [ -f '/Users/niklas/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/User
 if [ -f '/Users/niklas/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/niklas/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 nvpn
+
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux attach
+fi
