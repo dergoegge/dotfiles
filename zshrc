@@ -21,5 +21,5 @@ if [ -f '/Users/niklas/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . 
 nvpn
 
 if [[ ! $TERM =~ screen ]]; then
-    exec tmux attach
+  tmux attach
 fi
