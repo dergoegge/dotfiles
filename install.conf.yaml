@@ -16,6 +16,7 @@
     ~/.environment: environment
     ~/.fzfrc: fzfrc
     ~/.tmux.conf: tmux.conf
+    ~/.hindent.yaml: .hindent.yaml
     ~/.zshrc: 
       path: zshrc
       force: true 
