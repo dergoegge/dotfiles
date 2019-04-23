@@ -41,6 +41,7 @@ set number
 set autoindent
 set autowrite
 set relativenumber
+set backspace=indent,eol,start
 
 " tab sizes
 set tabstop=4
