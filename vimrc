@@ -15,6 +15,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf.vim'
 
+" https://github.com/szw/vim-g
+Plug 'szw/vim-g'  
+
 " https://github.com/junegunn/rainbow_parentheses.vim
 Plug 'junegunn/rainbow_parentheses.vim'
 
