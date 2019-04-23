@@ -1,5 +1,9 @@
 set nocompatible
 
+augroup vimrc
+    autocmd!
+augroup END
+
 " https://github.com/junegunn/vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -36,8 +40,13 @@ Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
+" filetype specific settings
+autocmd vimrc BufNewFile,BufReadPost Vagrantfile setfiletype ruby
+autocmd vimrc BufNewFile,BufReadPost .clang-format setfiletype yaml
+
 " key bindings
-map <C-n> :NERDTreeToggle<CR>
+map <C-w> :w<cr>
+map <C-n> :NERDTreeToggle<cr>
 map <leader>C :Commits<cr>
 map <leader>H :History<cr>
 map <leader>F :Files<cr>
@@ -47,6 +56,9 @@ set number
 set autoindent
 set autowrite
 set relativenumber
+set ruler
+set ignorecase
+set cursorline
 set backspace=indent,eol,start
 let g:go_fmt_command = "goimports"
 
