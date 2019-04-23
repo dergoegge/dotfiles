@@ -28,8 +28,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 " color scheme
-" https://github.com/altercation/vim-colors-solarized
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
@@ -50,5 +49,7 @@ set softtabstop=4
 
 " set up color scheme
 syntax enable
+let g:solarized_use16 = 1
+set term=xterm-256color
 set background=dark
-colorscheme solarized
+colorscheme solarized8
