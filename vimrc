@@ -35,6 +35,9 @@ call plug#end()
 
 " key bindings
 map <C-n> :NERDTreeToggle<CR>
+map <leader>C :Commits<cr>
+map <leader>H :History<cr>
+map <leader>F :Files<cr>
 
 filetype plugin on
 set number
