@@ -11,7 +11,7 @@
   - [rcmd/install.sh, Installing rcmd]
 
 - link:
-    ~/.config/nvim/init.vim: init.vim
+    ~/.vimrc: vimrc
     ~/.aliases: aliases
     ~/.environment: environment
     ~/.fzfrc: fzfrc
