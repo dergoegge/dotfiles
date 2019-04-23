@@ -40,6 +40,7 @@ filetype plugin on
 set number
 set autoindent
 set autowrite
+set relativenumber
 
 " tab sizes
 set tabstop=4
