@@ -24,6 +24,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " golang language support
 " https://github.com/fatih/vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " https://github.com/nsf/gocode
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
@@ -41,6 +42,7 @@ set autoindent
 set autowrite
 set relativenumber
 set backspace=indent,eol,start
+let g:go_fmt_command = "goimports"
 
 " tab sizes
 set tabstop=4
