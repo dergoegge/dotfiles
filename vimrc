@@ -22,6 +22,9 @@ Plug 'junegunn/fzf.vim'
 " https://github.com/szw/vim-g
 Plug 'szw/vim-g'  
 
+" https://github.com/tpope/vim-fugitive
+Plug 'tpope/vim-fugitive' 
+
 " https://github.com/junegunn/rainbow_parentheses.vim
 Plug 'junegunn/rainbow_parentheses.vim'
 
@@ -43,6 +46,13 @@ call plug#end()
 " filetype specific settings
 autocmd vimrc BufNewFile,BufReadPost Vagrantfile setfiletype ruby
 autocmd vimrc BufNewFile,BufReadPost .clang-format setfiletype yaml
+
+" git shortcuts
+nmap <leader>gc :tabedit expand('%')<cr>:Gcommit --verbose<cr>:only<cr>
+nmap <leader>gC :tabedit expand('%')<cr>:Gcommit --verbose --amend<cr>:only<cr>
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gp :Gpush<cr>
+nmap <leader>gg :Git
 
 " key bindings
 map <C-w> :w<cr>
