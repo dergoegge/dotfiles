@@ -31,6 +31,9 @@ Plug 'junegunn/rainbow_parentheses.vim'
 " https://github.com/scrooloose/nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+" https://github.com/airblade/vim-gitgutter
+Plug 'airblade/vim-gitgutter'
+
 " golang language support
 " https://github.com/fatih/vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
