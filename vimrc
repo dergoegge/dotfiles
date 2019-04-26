@@ -55,11 +55,12 @@ nmap <leader>gp :Gpush<cr>
 nmap <leader>gg :Git
 
 " key bindings
-map <C-w> :w<cr>
 map <C-n> :NERDTreeToggle<cr>
+map <leader>w :w<cr>
 map <leader>C :Commits<cr>
 map <leader>H :History<cr>
 map <leader>F :Files<cr>
+map <leader>L :Lines<cr>
 
 filetype plugin on
 set number
