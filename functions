@@ -46,3 +46,5 @@ function path_prepend() {
     [[ -n $2 ]] && { print ERROR: only 'path' is supported; return }
     path=($path_element $path)
 }
+
+# vim:ft=sh

@@ -84,3 +84,5 @@ function fr() {
 	[ -z search_path ] && search_path=./
 	rcmd find $1 | fzf
 }
+
+# vim:ft=sh

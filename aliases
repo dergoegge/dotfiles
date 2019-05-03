@@ -5,3 +5,5 @@ alias weather="curl wttr.in/berlin"
 alias cl="find . -name '*' | xargs wc -l"
 alias rn="react-native"
 alias genapk="cd android && ./gradlew assembleRelease"
+
+# vim:ft=sh
