@@ -1,7 +1,7 @@
 # fjt - find gitlab ci job and show its trace
 function fjt() {
 	lab job --log \
-		$(lab pipeline $(lab pipeline | fzf +s | sed "s/ .*//g") | fzf +s | sed "s/ .*//g")
+		$(lab pipeline $(lab pipeline | fzf +s | sed "s/ .*//g") | fzf +s | sed "s/ .*//g") | less -r
 }
 
 # fie - find gitlab issue and edit its contents
@@ -13,7 +13,7 @@ function fie() {
 # fis - find and show gitlab issue
 function fis() {
 	lab issue \
-		$(lab issue -n 100 --orderby=created_at | fzf +s | sed "s/ .*//g")
+		$(lab issue -n 100 --orderby=created_at | fzf +s | sed "s/ .*//g") | less
 }
 
 # fib - find gitlab issue and open it in a new browser window
