@@ -16,6 +16,12 @@ function fis() {
 		$(lab issue -n 100 --orderby=created_at | fzf +s | sed "s/ .*//g")
 }
 
+# fib - find gitlab issue and open it in a new browser window
+function fib() {
+	lab issue -b \
+		$(lab issue -n 100 --orderby=created_at | fzf +s | sed "s/ .*//g")
+}
+
 # fdi - find docker image
 function fdi() {
 	docker images --format "{{.Repository}}" | fzf --exit-0 --select-1
