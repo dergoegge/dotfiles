@@ -1,7 +1,23 @@
+function fjt_stream() {
+	local job_id=$1
+	local old_trace=$2
+	local new_trace=$(lab job --log $job_id)
+
+	printf "%s" ${new_trace#"$old_trace"}	
+	sleep 2
+
+	fjt_stream $job_id $new_trace
+}
+
 # fjt - find gitlab ci job and show its trace
 function fjt() {
-	lab job --log \
-		$(lab pipeline $(lab pipeline | fzf +s | sed "s/ .*//g") | fzf +s | sed "s/ .*//g") | less -r
+	local pipeline_id=$(lab pipeline | fzf +s | sed "s/ .*//g") 
+	local job_id=$(lab pipeline $pipeline_id | fzf +s | sed "s/ .*//g")
+	local trace=$(lab job --log $job_id)
+	echo $trace
+	if [[ "$1" == "-s" ]]; then
+		fjt_stream $job_id $trace
+	fi
 }
 
 # fie - find gitlab issue and edit its contents
