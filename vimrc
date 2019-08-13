@@ -95,6 +95,8 @@ set cursorline
 set backspace=indent,eol,start
 let g:go_fmt_command = "goimports"
 
+let NERDTreeShowHidden=1
+
 " tab sizes
 set tabstop=4
 set shiftwidth=4
