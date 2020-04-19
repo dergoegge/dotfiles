@@ -20,3 +20,4 @@
     ~/.zshrc: 
       path: zshrc
       force: true 
+    ~/.config/kitty/kitty.conf: kitty.conf
