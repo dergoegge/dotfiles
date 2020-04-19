@@ -98,6 +98,7 @@ set ignorecase
 set cursorline
 set backspace=indent,eol,start
 let g:go_fmt_command = "goimports"
+let g:rustfmt_autosave = 1
 
 let NERDTreeShowHidden=1
 
