@@ -44,6 +44,10 @@ Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' 
 " color scheme
 Plug 'lifepillar/vim-solarized8'
 
+" rust plugin that supports file detection, syntax highlighting, formatting,
+" Syntastic integration, and more.
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 " statusline
