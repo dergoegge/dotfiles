@@ -87,10 +87,10 @@ nmap <leader>gg :Git
 " key bindings
 map <C-n> :NERDTreeToggle<cr>
 map <leader>w :w<cr>
-map <leader>C :Commits<cr>
-map <leader>H :History<cr>
-map <leader>F :Files<cr>
-map <leader>L :Lines<cr>
+map <leader>c :Commits<cr>
+map <leader>h :History<cr>
+map <leader>f :Files<cr>
+map <leader>l :Lines<cr>
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
