@@ -1,4 +1,5 @@
 set nocompatible
+let mapleader = "\<Space>"
 
 augroup vimrc
     autocmd!
@@ -48,6 +49,9 @@ Plug 'lifepillar/vim-solarized8'
 " Syntastic integration, and more.
 Plug 'rust-lang/rust.vim'
 
+
+Plug 'https://github.com/cstrahan/vim-capnp.git'
+
 call plug#end()
 
 " statusline
@@ -87,6 +91,17 @@ map <leader>C :Commits<cr>
 map <leader>H :History<cr>
 map <leader>F :Files<cr>
 map <leader>L :Lines<cr>
+
+" <leader><leader> toggles between buffers
+nnoremap <leader><leader> <c-^>
+
+" No arrow keys --- force yourself to use the home row
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 filetype plugin on
 set number
