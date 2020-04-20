@@ -103,6 +103,10 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
+" Jump to start and end of line using the home row keys
+map H ^
+map L $
+
 filetype plugin on
 set number
 set autoindent
