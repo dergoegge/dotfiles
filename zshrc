@@ -4,6 +4,10 @@ ZSH_THEME="af-magic"
 
 plugins=(git web-search python wd osx brew zsh-syntax-highlighting)
 
+# bind alt-left/right for moving wordwise in commands
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/aliases
 source ~/dotfiles/functions
