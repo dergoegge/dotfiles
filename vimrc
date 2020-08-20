@@ -40,7 +40,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " https://github.com/nsf/gocode
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " color scheme
 Plug 'lifepillar/vim-solarized8'
@@ -91,9 +92,32 @@ map <leader>c :Commits<cr>
 map <leader>h :History<cr>
 map <leader>f :Files<cr>
 map <leader>l :Lines<cr>
+map <leader>b :Buffers<cr>
+
+
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " No arrow keys --- force yourself to use the home row
 nnoremap <up> <nop>
@@ -119,7 +143,12 @@ tnoremap <C-c> <Esc>
 map H ^
 map L $
 
+" Move by line
+nnoremap j gj
+nnoremap k gk
+
 filetype plugin on
+set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 set number
 set autoindent
 set autowrite
@@ -127,6 +156,8 @@ set relativenumber
 set ruler
 set ignorecase
 set cursorline
+set cmdheight=2
+set updatetime=300
 set backspace=indent,eol,start
 let g:go_fmt_command = "goimports"
 let g:rustfmt_autosave = 1
