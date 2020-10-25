@@ -50,6 +50,8 @@ Plug 'lifepillar/vim-solarized8'
 " Syntastic integration, and more.
 Plug 'rust-lang/rust.vim'
 
+"clang-format plugin
+Plug 'rhysd/vim-clang-format'
 
 Plug 'https://github.com/cstrahan/vim-capnp.git'
 
