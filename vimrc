@@ -166,6 +166,12 @@ let g:rustfmt_autosave = 1
 
 let NERDTreeShowHidden=1
 
+" save undo and redo data across restarts
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
+
 " tab sizes
 set tabstop=4
 set shiftwidth=4
