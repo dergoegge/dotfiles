@@ -151,6 +151,7 @@ nnoremap k gk
 
 filetype plugin on
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+set autoread
 set number
 set autoindent
 set autowrite
