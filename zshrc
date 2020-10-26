@@ -1,6 +1,6 @@
 export ZSH=$HOME/dotfiles/oh-my-zsh
 
-ZSH_THEME="af-magic"
+#ZSH_THEME=""
 
 plugins=(git web-search python wd osx brew zsh-syntax-highlighting)
 
@@ -9,6 +9,7 @@ bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
 source $ZSH/oh-my-zsh.sh
+[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 source ~/dotfiles/aliases
 source ~/dotfiles/functions
 source ~/dotfiles/fzfrc
