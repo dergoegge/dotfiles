@@ -44,7 +44,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " color scheme
-Plug 'lifepillar/vim-solarized8'
+"Plug 'lifepillar/vim-solarized8'
+"Plug 'sainnhe/gruvbox-material'
 
 " rust plugin that supports file detection, syntax highlighting, formatting,
 " Syntastic integration, and more.
@@ -181,7 +182,6 @@ set softtabstop=4
 
 " set up color scheme
 syntax enable
-let g:solarized_use16 = 1
-set term=xterm-256color
 set background=dark
-colorscheme solarized8
+"colorscheme gruvbox-material
+set term=xterm-256color
