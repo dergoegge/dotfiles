@@ -70,7 +70,8 @@ endfunction
 set laststatus=2
 set statusline=
 set statusline+=%f%m│ 
-set statusline+=%{StatuslineGit()}
+" TODO: https://github.com/fatih/vim-go/issues/71#issuecomment-396049658
+"set statusline+=%{StatuslineGit()}
 " switching to right side
 set statusline+=%=
 set statusline+=%y│
