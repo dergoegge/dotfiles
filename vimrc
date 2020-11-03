@@ -98,7 +98,12 @@ map <leader>f :Files<cr>
 map <leader>l :Lines<cr>
 map <leader>b :Buffers<cr>
 
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number -- '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0], 'options': '--delimiter : --nth 3..'}), <bang>0)
 
+map <leader>L :GGrep<cr>
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
