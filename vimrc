@@ -46,6 +46,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " color scheme
 "Plug 'lifepillar/vim-solarized8'
 "Plug 'sainnhe/gruvbox-material'
+Plug 'morhetz/gruvbox'
 
 " rust plugin that supports file detection, syntax highlighting, formatting,
 " Syntastic integration, and more.
@@ -92,10 +93,11 @@ nmap <leader>gg :Git
 " key bindings
 map <C-n> :NERDTreeToggle<cr>
 map <leader>w :w<cr>
+map <leader>f :ClangFormat<cr>
 map <leader>c :Commits<cr>
 map <leader>h :History<cr>
-map <leader>f :Files<cr>
-map <leader>l :Lines<cr>
+map <leader>o :Files<cr>
+map <leader>l :BLines<cr>
 map <leader>b :Buffers<cr>
 
 command! -bang -nargs=* GGrep
@@ -165,13 +167,13 @@ set autowrite
 set relativenumber
 set ruler
 set ignorecase
-set cursorline
+"set cursorline
 set cmdheight=2
 set updatetime=300
 set backspace=indent,eol,start
 let g:go_fmt_command = "goimports"
 let g:rustfmt_autosave = 1
-
+let g:clang_format#auto_format = 0
 let NERDTreeShowHidden=1
 
 " save undo and redo data across restarts
@@ -186,7 +188,17 @@ set shiftwidth=4
 set softtabstop=4
 
 " set up color scheme
-syntax enable
+let g:go_highlight_structs = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:gruvbox_contrast_dark = "hard"
+
+syntax on
+colorscheme gruvbox
 set background=dark
-"colorscheme gruvbox-material
 set term=xterm-256color
+set t_ut=""
+hi Pmenu ctermbg=black ctermfg=white
