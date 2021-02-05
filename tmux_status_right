@@ -1,0 +1,15 @@
+#!/bin/zsh
+# vim:ft=sh
+
+function _hg_status_line() {
+    hg root >/dev/null 2>&1 || return 1
+	print "hg: [$(hg branch)]$(hg diff --stat | tail -n1) |"
+}
+
+function _git_status_line() {
+    git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 1
+	print "git: [$(git symbolic-ref -q HEAD --short)]$(git diff --shortstat) |"
+}
+
+_git_status_line
+_hg_status_line
