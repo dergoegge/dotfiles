@@ -97,7 +97,6 @@ map <leader>f :ClangFormat<cr>
 map <leader>c :Commits<cr>
 map <leader>h :History<cr>
 map <leader>o :Files<cr>
-map <leader>l :BLines<cr>
 map <leader>b :Buffers<cr>
 
 command! -bang -nargs=* GGrep
@@ -105,7 +104,18 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number -- '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0], 'options': '--delimiter : --nth 3..'}), <bang>0)
 
-map <leader>L :GGrep<cr>
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+
+command! -bang -nargs=* CustomBLines
+    \ call fzf#vim#grep(
+    \   'rg --with-filename --column --line-number --no-heading --smart-case . '.fnameescape(expand('%:p')), 1,
+    \   fzf#vim#with_preview({'options': '--keep-right --delimiter : --nth 4..'}, 'right:60%' ))
+
+map <leader>L :Rg<cr>
+map <leader>l :CustomBLines<cr>
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
