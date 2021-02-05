@@ -9,12 +9,12 @@ bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
 source $ZSH/oh-my-zsh.sh
-[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
+[[ $- = *i* ]] && source ~/dotfiles/liquidprompt/liquidprompt
 source ~/dotfiles/aliases
 source ~/dotfiles/functions
 source ~/dotfiles/fzfrc
 source ~/dotfiles/environment
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
