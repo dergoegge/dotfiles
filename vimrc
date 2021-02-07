@@ -183,7 +183,13 @@ set updatetime=300
 set backspace=indent,eol,start
 let g:go_fmt_command = "goimports"
 let g:rustfmt_autosave = 1
+
+" dont auto format, this gets annoying when dealing with files were
+" formatting was not applied consistently.
 let g:clang_format#auto_format = 0
+" auto detect .clang-format style files.
+let g:clang_format#detect_style_file = 1
+
 let NERDTreeShowHidden=1
 
 " save undo and redo data across restarts
